@@ -1,3 +1,3 @@
 # PythonAcademy
 ## Perosnal Python Learning Repository
-ENGETO Python Academy Related Repository
+ENGETO Python Academy
