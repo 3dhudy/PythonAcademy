@@ -99,3 +99,5 @@ else:
 	2. Alespon 8 znaku dlouhe,
     """
     )
+
+    
