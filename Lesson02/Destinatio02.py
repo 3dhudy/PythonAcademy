@@ -1,18 +1,11 @@
-# ~~~~~~~~~~~~~~~~~~~ZAPIS Z LEKCE #01~~~~~~~~~~~~~~~~~~~
-...
-
 #!/usr/bin/env python3
-""" Lekce #1 - Uvod do programovani, 1/2 Destinatio """
+""" Lekce #2 - Uvod do programovani, 2/2 Destinatio """
 
-# I. KROK:
-# Definujeme promenne, se kterymi chceme pracovat
-MESTA = ("Praha", "Viden", "Olomouc", "Svitavy", "Zlin", "Ostrava")
-CENY = (150, 200, 120, 120, 100, 180)
+# ~~~~~~~~~~~~~~~~~~~ZAPIS Z LEKCE #01~~~~~~~~~~~~~~~~~~~
+SEZNAM_MEST = ("Praha", "Viden", "Olomouc", "Svitavy", "Zlin", "Ostrava")
+SEZNAM_CEN = (150, 200, 120, 120, 100, 180)
 ODDELOVAC = "=" * 35
 
-# II. KROK:
-# Pozdravime uzivatele a doplnime oddelovace '='
-# Zobrazit uzivateli nasi nabidkou - lokalita | cena
 print(ODDELOVAC)
 print("Vitejte u nasi aplikace Destinatio!")
 print(ODDELOVAC)
@@ -26,104 +19,83 @@ print(
 6 - Ostrava | 180
 """
 )
+
 print(ODDELOVAC)
-
-# III. KROK:
-# Vyzadame si od uzivatele jednotlive vstupy
-# Cislo destinace, jmeno, prijmeni, rok_narozeni, email, heslo
-por_cislo = int(input("Vyberte cislo lokality: "))
-jmeno = input("JMENO: ")
-prijmeni = input("PRIJMENI: ")
-rok_narozeni = int(input("ROK NAROZENI: "))
-email = input("EMAIL: ")
-heslo = input("HESLO: ")
-print(ODDELOVAC)
-
-# IV. KROK:
-# Modifikujeme tyto hodnoty,
-destinace = MESTA[por_cislo - 1]
-cena = CENY[por_cislo - 1]
-
-# V. KROK:
-# Vystupni sekce, vypisujeme konkretni udaje
-# Jmeno, destinaci, cenu, email
-print("UZIVATEL: " + jmeno)
-print("DESTINACE: " + destinace)
-print("CENA(cil:" + destinace + "): " + str(cena))
-print(f"Jizdenku posleme na Vasi emailovou adresu: {email}")
 
 # ~~~~~~~~~~~~~~~~~~~KONEC ZAPISU Z LEKCE #01~~~~~~~~~~~~~~~~~~~
-
-#!/usr/bin/env python3
-""" Lekce #2 - Uvod do programovani, 2/2 Destinatio """
-
-
 # I. KROK:
-# Doplnit zadani (sleva 25%)
+# Update/doplnit zadani
 SLEVY = ("Olomouc", "Ostrava")
 
 # II. KROK:
-# Spravne cislo lokality! Podm. zapis x --> (1, 6)
-por_cislo = int(input("Vyberte cislo lokality"))
+# Spravne cislo lokality! 1 < x < 6
+por_cislo = int(input("Vyberte cislo lokality: "))
 
-if por_cislo > 1 or por_cislo < 6:
-    print("Cislo neni v nabidce")
-    print(ODDELOVAC)
+if por_cislo < 1 or por_cislo > 6:  # logical operators + conditions
+    print("Vami vybrane cislo neni v nabidce, ukoncuji")
+    exit()  # exit()
 else:
-    destinace = MESTA[por_cislo - 1]
-    cena = CENY[por_cislo - 1]
+    destinace = SEZNAM_MEST[por_cislo - 1]
+    cena = SEZNAM_CEN[por_cislo - 1]
     print(f"DESTINACE: {destinace}")
     print(ODDELOVAC)
 
 # III. KROK:
-# Vyresime pouziti slevy. Membership testing.
-if destinace in SLEVY:
+# Vyresime pouziti slevy --> ANO/NE
+if destinace in SLEVY:  # membership testing
     cena_po_sleve = 0.75 * cena
 else:
     cena_po_sleve = cena
 
 # IV. KROK:
-# Jmeno + prijmeni obsahuje jen pismena
+# jmeno + prijmeni obsahuje jen pismena
 jmeno = input("JMENO: ")
 prijmeni = input("PRIJMENI: ")
 
-if jmeno.isalpha() and prijmeni.isalpha():
+if jmeno.isalpha() and prijmeni.isalpha():  # metody stringu
     print(f"JMENO: {jmeno}, PRIJMENI: {prijmeni}")
     print(ODDELOVAC)
 else:
-    print("Jmeno a prijmeni musi obsahovat pouze pismena")
-    print(ODDELOVAC)
+    print("Jmeno a prijmeni musi obsahovat pouze pismena, ukoncuji")
     exit()
 
 # V. KROK:
-# Aktualni rok - datum narozeni >= 18
+# aktualni rok - datum narozeni --> > 18
 AKT_ROK = 2020
-rok_narozeni = int(input("ROK NAROZENI: "))
+vek = int(input("ROK NAROZENI: "))
 
-if (AKT_ROK - rok_narozeni) >= 18:
-    print ("Pokracuji...")
+if (AKT_ROK - vek) >= 18:
+    print(f"Pokracuji...")
     print(ODDELOVAC)
-
 else:
-    print("Nase sluzby mohou vyuzivat pouze osoby starsi 18 let")
+    print("Nase sluzby mohou vyuzivat pouze osoby starsi 18 let, ukoncuji")
     exit()
 
 # VI. KROK:
-# Spravny email obsahuje "@"
+# Spravny email
 email = input("EMAIL: ")
-
 if "@" in email:
-    print("Email v poradku, pokracuji ...")
+    print("Email v poradku, pokracuji...")
     print(ODDELOVAC)
-
 else:
-    print("Nepodporovany format emailu, ukoncuji ...")
+    print("Nepodporovany format emailu, ukoncuji")
     exit()
 
 # VII. KROK:
-# Heslo obsahuje jak cisla, tak pismena + delka >= 8
-# Zaverecny vystup pro uzivatele
+# Heslo obsahuje jak cisla, tak pismena + delka?
 heslo = input("HESLO: ")
 
-
-
+if len(heslo) >= 8 and not heslo.isalpha() and not heslo.isnumeric():
+    print("Heslo v poradku")
+    print(ODDELOVAC)
+    print("UZIVATEL: " + jmeno)
+    print("DESTINACE: " + destinace)
+    print("CENA(cil:" + destinace + "): " + str(cena_po_sleve))
+    print(f"Jizdenku posleme na Vasi emailovou adresu: {email}")
+else:
+    print(
+        """Tvoje heslo je spatne zadane:
+	1. Musi obsahovat jak pismena, tak cislice,
+	2. Alespon 8 znaku dlouhe,
+    """
+    )
