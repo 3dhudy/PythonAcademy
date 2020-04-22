@@ -4,7 +4,7 @@
 # ~~~~~~~~~~~~~~~~~~~ZAPIS Z LEKCE #01~~~~~~~~~~~~~~~~~~~
 SEZNAM_MEST = ("Praha", "Viden", "Olomouc", "Svitavy", "Zlin", "Ostrava")
 SEZNAM_CEN = (150, 200, 120, 120, 100, 180)
-ODDELOVAC = "=" * 35
+ODDELOVAC = "=" * 40
 
 print(ODDELOVAC)
 print("Vitejte u nasi aplikace Destinatio!")
