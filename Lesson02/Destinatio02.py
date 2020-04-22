@@ -68,6 +68,7 @@ por_cislo = int(input("Vyberte cislo lokality"))
 
 if por_cislo > 1 or por_cislo < 6:
     print("Cislo neni v nabidce")
+    print(ODDELOVAC)
 else:
     destinace = MESTA[por_cislo - 1]
     cena = CENY[por_cislo - 1]
@@ -83,15 +84,46 @@ else:
 
 # IV. KROK:
 # Jmeno + prijmeni obsahuje jen pismena
+jmeno = input("JMENO: ")
+prijmeni = input("PRIJMENI: ")
+
+if jmeno.isalpha() and prijmeni.isalpha():
+    print(f"JMENO: {jmeno}, PRIJMENI: {prijmeni}")
+    print(ODDELOVAC)
+else:
+    print("Jmeno a prijmeni musi obsahovat pouze pismena")
+    print(ODDELOVAC)
+    exit()
 
 # V. KROK:
 # Aktualni rok - datum narozeni >= 18
+AKT_ROK = 2020
+rok_narozeni = int(input("ROK NAROZENI: "))
+
+if (AKT_ROK - rok_narozeni) >= 18:
+    print ("Pokracuji...")
+    print(ODDELOVAC)
+
+else:
+    print("Nase sluzby mohou vyuzivat pouze osoby starsi 18 let")
+    exit()
 
 # VI. KROK:
 # Spravny email obsahuje "@"
+email = input("EMAIL: ")
+
+if "@" in email:
+    print("Email v poradku, pokracuji ...")
+    print(ODDELOVAC)
+
+else:
+    print("Nepodporovany format emailu, ukoncuji ...")
+    exit()
 
 # VII. KROK:
 # Heslo obsahuje jak cisla, tak pismena + delka >= 8
 # Zaverecny vystup pro uzivatele
+heslo = input("HESLO: ")
+
 
 
