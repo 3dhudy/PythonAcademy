@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-""" Lekce #1 - Uvod do programovani, 1/2 Destinatio """
-
 # I. KROK:
 # Definujeme promenne, se kterymi chceme pracovat
 MESTA = ("Praha", "Viden", "Olomouc", "Svitavy", "Zlin", "Ostrava")
