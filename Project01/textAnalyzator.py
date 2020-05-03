@@ -31,10 +31,10 @@ elif UZIVATELE.get(jmeno) == heslo:
 
 # 5. Pro vybraný text spočítá následující statistiky:
 # - počet slov,
-# - počet slov začínajících velkým písmenem,
-# - počet slov psaných velkými písmeny,
-# - počet slov psaných malými písmeny,
-# - počet čísel (ne cifer!).
+# - počet slov začínajících velkým písmenem, .title()
+# - počet slov psaných velkými písmeny, .isupper()
+# - počet slov psaných malými písmeny, .islower()
+# - počet čísel (ne cifer!). .isnumeric()
 
 # 6. Program zobrazí jednoduchý sloupcový graf, který bude reprezentovat četnost různých délek slov v textu. 
 
