@@ -38,13 +38,13 @@ Vyber operaci: '''))
 
 # Sem zapiš podmínky, které spojí tebou nabízené operace a následný print() výsledku
     if operace == '+':
-        print('     >>> ' + str(cislo01)+ ' + ' + str(cislo02) + ' = ' + str(cislo01 + cislo02))
+        print('     >>> ', str(cislo01), ' + ', str(cislo02), ' = ', str(cislo01 + cislo02))
     elif operace == '-':
-        print('     >>> ' + str(cislo01) + ' - ' + str(cislo02) + ' = ' + str(cislo01 - cislo02))
+        print('     >>> ', str(cislo01), ' - ', str(cislo02), ' = ', str(cislo01 - cislo02))
     elif operace == '*':
-        print('     >>> ' + str(cislo01) + ' * ' + str(cislo02) + ' = ' + str(cislo01 * cislo02))
+        print('     >>> ', str(cislo01), ' * ', str(cislo02), ' = ', str(cislo01 * cislo02))
     elif operace == '/':
-        print('     >>> ' + str(cislo01) + ' / ' + str(cislo02) + ' = ' + str(cislo01 / cislo02))
+        print('     >>> ', str(cislo01), ' / ', str(cislo02), ' = ', str(cislo01 / cislo02))
     elif operace == '=': # prepnu mod OFF
         print('Nashledanou.')
         mod = False
