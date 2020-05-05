@@ -14,9 +14,9 @@ sorted_names = [names.pop(0)]
 # Začni vnější for loop, kterým budeš procházet seznam `names` (měl by mít už o jeden prvek méně)
 for name in names:
     # Zační vnitřní for loop, kterým budeš procházet seznam `sorted_names` a pomocí podmínkového výrazu, `break` a `else` vlož jméno z `names` buď na pozici, nebo za pozici daného jméno v listu `sorted_names`
-    for i,s_name in enumerate(sorted_names):
+    for index,s_name in enumerate(sorted_names):
         if name < s_name:
-            sorted_names.insert(i,name)
+            sorted_names.insert(index,name)
             break
     else:
         sorted_names.append(name)
