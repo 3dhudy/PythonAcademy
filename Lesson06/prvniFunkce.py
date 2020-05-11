@@ -1,5 +1,6 @@
 # I. KROK
-# Vlozime zadani
+# Importovani + promenne
+from pprint import pprint
 UDAJE = """
 byt 0001,55 m2,Olomouc,ul.Heyrovského,
 byt 0003,65 m2,Olomouc,ul.Novosadský dvůr,
@@ -50,11 +51,10 @@ byt 0004,90 m2,Olomouc,ul.Dvořákova,
 byt 0004,86 m2,Olomouc,ul.Nová Ulice,
 byt 0003,75 m2,Olomouc,ul.Nešverova,
 byt 0001,45 m2,Olomouc,ul.Zirmova,
-byt 0006,114 m2,Olomouc,ul.Přichystalová,
+byt 0010,114 m2,Olomouc,ul.Přichystalová,
 """
-
 # II. KROK
-# Definujeme vzor, jak chceme *udaje* prevest
+# Definovat podle ceho je vhodne prevadet
 PREVOD_UDAJU = {
     "byt 0001": "1+1",
     "byt 0002": "2+1",
@@ -64,62 +64,25 @@ PREVOD_UDAJU = {
     "byt 0006": "4+1",
     "byt 0007": "4+kk",
 }
-
 # III. KROK
-# Prochazime promennou *udaj* jeden radek za druhym
-# Ukazat prazdne retezce na zacatku/ konci
-# vysledek = list()
-
-# for radek in UDAJE.split("\n"):
-#     vysledek.append(radek)
-
-# print(vysledek)
-
+# Funkce, uvod definice
+def prevod_ic(typ_bytu: str, prevodnik: dict) -> str():
+    return prevodnik.get(typ_bytu, None)
 # IV. KROK
-# Napiseme seznamovou komprehenci s podminkou
+# Rozebrani promenne *udaje*
 rozdelene_radky = [radek for radek in UDAJE.split("\n") if radek != ""]
-print(rozdelene_radky)
-
 # V. KROK
-# Potrebujeme promennou *udaje* rozdelit
-# ukazka vicenasobneho prirazeni
+# Hlavni smycka, ve ktere aplikuji funkci prevod()
+aktualizovane_udaje = list()
 pocet_zmen = 0
 for radek in rozdelene_radky:
     # VI. KROK
-    # Chybne prirazeni
-    # ic, plocha, mesto, ulice = radek.split(",")
-    # print(radek.split(","))
-    # break
-
-    # VII. KROK
-    # Spravne prirazeni
-    # ic, plocha, mesto, ulice, zbytek = radek.split(",")
-    # print(radek.split(","))
-    # break
-    
-    # VIII. KROK
-    # chceme pouze ic a zbytek
-    # rozbalovaci operator
-    ic_bytu, *zbytek_informaci = radek.split(",")
-    rozdelene_udaje.append([ic_bytu, *zbytek_informaci])
-    pocet_zmen += 1
-    
-# IX. KROK
-# Potrebujeme menit oznaceni bytu za typ bytu
-# Uvod do funkci
-def prevodnik_ic(typ_bytu : str, prevodnik : dict) -> str():
-    return prevodnik.get(typ_bytu, None) 
-# X. KROK
-# vstupy do funkci
-# vystupy funkce
-aktualizovane_udaje = list()
-
-for radek in rozdelene_udaje:
-    puvodni_ic, *zbytek = radek
-    prevodnik_ic(puvodni_ic, PREVOD_UDAJU)
-    aktualizovane_udaje.append([[prevedene_ic, *zbytek[:-1]]])
-    break
-
-print(aktualizovane_udaje)
-# XI. KROK
-# Doplnime smycku s nasi novou funkci
+    # Vicenasobne prirazeni
+    # Rozbalovaci operator
+    # Zkraceny zapis
+    puvodni_ic, *zbytek = radek.split(",")
+    prevedene_ic = prevod_ic(puvodni_ic, PREVOD_UDAJU)
+    aktualizovane_udaje.append([prevedene_ic, *zbytek[:-1]])
+# VII. KROK
+# Aplikujeme importovany modul *pprint*
+pprint(aktualizovane_udaje)
