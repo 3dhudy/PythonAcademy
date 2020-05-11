@@ -1,6 +1,7 @@
 # I. KROK
 # Importovani + promenne
 from pprint import pprint
+
 UDAJE = """
 byt 0001,55 m2,Olomouc,ul.Heyrovského,
 byt 0003,65 m2,Olomouc,ul.Novosadský dvůr,
