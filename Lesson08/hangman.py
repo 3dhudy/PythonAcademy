@@ -1,83 +1,65 @@
 """Lekce #8 - Uvod do programovani, obesenec"""
-
 import random
-
 # I. KROK
 # Hlavni funkce + vymyslet postup
 def hlavni():
     hrac = pridej_hrace()
-    hadane_slovo = vyber_hadane_slovo()
-    postup, zbyvajici_tahy = schovej_slovo(hadane_slovo)
-
+    hadane_slovo = vyber_slovo()
+    tajne_slovo, zbyvajici_tahy = schovej_slovo(hadane_slovo)
     while zbyvajici_tahy:
-        zbyvajici_tahy = hraci_kolo(hrac, hadane_slovo, postup, zbyvajici_tahy)
-        posouzeni_stavu(postup, hrac, zbyvajici_tahy)
-
-
+        zbyvajici_tahy = herni_kolo(
+            hrac,
+            tajne_slovo,
+            zbyvajici_tahy,
+            hadane_slovo
+        )
+        posouzeni_stavu_hry(tajne_slovo, hrac, zbyvajici_tahy)
 # II. KROK
 # Pridame hrace
 def pridej_hrace():
-    return input("ZADEJTE JMENO: ")
-
-
+    return input("ZADEJTE JMENO HRACE: ")
 # III. KROK
 # Zvolime slovo pro hadani + nacteme jej
-def vyber_hadane_slovo():
+def vyber_slovo():
     with open("slova.txt", "r") as txt:
         obsazena_slova = txt.read().split("\n")
         return random.choice(obsazena_slova)
-
-
 # IV. KROK
 # Schovame jej!
 def schovej_slovo(slovo):
-    return ["_"] * len(slovo), round(1.3 * len(slovo), 0)
-
-
+    return len(slovo) * ["_"], round(1.4 * len(slovo), 0)
 # V. KROK
 # Vypisujeme stav hry
-def vypis_stav_hry(hr, post, zbyvajici_tahy):
-    join_met = " ".join(post)
-    zprava = f"HRAC: {hr} | STAV: {join_met} | ZBYVA: {zbyvajici_tahy} |"
-    oddelovac = len(zprava) * "-"
+def vypis_stav_hry(hr, post, tahy):
+    zprava = f"HRAC: {hr}, STAV: {' '.join(post)} , ZBYVA: {tahy}"
+    oddelovac = "-" * len(zprava)
     print(oddelovac, zprava, oddelovac, sep="\n")
-
-
 # VI. KROK
 # Hrac hada pismeno
-def hrac_hada():
+def hadane_pismeno():
     return input("HADEJ PISMENO: ")
-
-
 # VII. KROK
 # Posouzeni hadaneho pismena
-def posouzeni_hadani(pism, slovo, prog):
-    for index, letter in enumerate(slovo):
-        if letter in pism:
-            prog[index] = pism
-
-
+def posouzeni_hadani(pismeno, slovo, tajne_slovo):
+    for index, pism in enumerate(slovo):
+        if pism in pismeno:
+            tajne_slovo[index] = pism
 # VIII. KROK
 # Prubeh kazdeho kola
-def hraci_kolo(hrac, hadane_slovo, postup, zbyvajici_tahy):
-    vypis_stav_hry(hrac, postup, zbyvajici_tahy)
-    hadane_pismeno = hrac_hada()
-    posouzeni_hadani(hadane_pismeno, hadane_slovo, postup)
+def herni_kolo(hrac, tajne_slovo, zbyvajici_tahy, hadane_slovo):
+    vypis_stav_hry(hrac, tajne_slovo, zbyvajici_tahy)
+    hracuv_odhad = hadane_pismeno()
+    posouzeni_hadani(hracuv_odhad, hadane_slovo, tajne_slovo)
     zbyvajici_tahy -= 1
     return zbyvajici_tahy
-
-
 # IX. KROK
 # Zaverecny vystup
-def posouzeni_stavu(postup, hrac, zbyvajici_tahy):
-    if "_" not in postup:
-        vypis_stav_hry(hrac, postup, zbyvajici_tahy)
-        print(f"VYBORNE, {hrac}! UHADL JSI!")
+def posouzeni_stavu_hry(tajne_slovo, hrac, zbyvajici_tahy):
+    if "_" not in tajne_slovo:
+        vypis_stav_hry(hrac, tajne_slovo, zbyvajici_tahy)
+        print(f"VYBORNE! {hrac}, UHODL JSI!")
         exit()
-
-    elif "_" in postup and zbyvajici_tahy == 0:
-        print(f"PROHRALS, {hrac}, BOHUZEL!")
+    elif "_" in tajne_slovo and zbyvajici_tahy == 0:
+        print(f"PROHRAL JSI! {hrac}, SNAD PRISTE!")
         exit()
-
-
 hlavni()
