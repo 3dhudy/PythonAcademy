@@ -72,3 +72,4 @@ def posouzeni_stavu_hry(tajne_slovo, hrac, zbyvajici_tahy):
         print(f"PROHRAL JSI! {hrac}, SNAD PRISTE!")
         exit()
 hlavni()
+
