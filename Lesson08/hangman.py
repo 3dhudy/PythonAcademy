@@ -24,7 +24,7 @@ def pridej_hrace():
 # III. KROK
 # Zvolime slovo pro hadani + nacteme jej
 def vyber_slovo():
-    with open("slova.txt", "r") as txt:
+    with open("Lesson08/slova.txt", "r") as txt:
         obsazena_slova = txt.read().split("\n")
         return random.choice(obsazena_slova)
 
