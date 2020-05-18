@@ -76,21 +76,21 @@ pp(nejscastejsi)
 
 # VIII. KROK
 # Upravit vystup abych mel hodnoty rozdelene
-for  cislo in range(len(nejscastejsi), 0, -1):
-    print('=' * 30)
-
-    for slovo  in nejscastejsi:
-        print(f"SLOVO: *{slovo}*, VYSKYT: {vyskyt_slov[slovo]}x")
-        nejscastejsi.remove(slovo)
-        break
-
-# Enumerate
-# Zakomentuj krok VIII
-# for  index, _ in enumerate(range(len(nejscastejsi), 0, -1), 1):
-#     print('=' * 28)
-#     print(f"{index}", end=", ")
+# for  cislo in range(len(nejscastejsi), 0, -1):
+#     print('=' * 30)
 
 #     for slovo  in nejscastejsi:
 #         print(f"SLOVO: *{slovo}*, VYSKYT: {vyskyt_slov[slovo]}x")
 #         nejscastejsi.remove(slovo)
 #         break
+
+# Enumerate
+# Zakomentuj krok VIII
+for  index, _ in enumerate(range(len(nejscastejsi), 0, -1), 1):
+    print('=' * 28)
+    print(f"{index}", end=", ")
+
+    for slovo  in nejscastejsi:
+        print(f"SLOVO: *{slovo}*, VYSKYT: {vyskyt_slov[slovo]}x")
+        nejscastejsi.remove(slovo)
+        break
