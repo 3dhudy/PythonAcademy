@@ -84,7 +84,6 @@ else:
 # VII. KROK:
 # Heslo obsahuje jak cisla, tak pismena + delka?
 heslo = input("HESLO: ")
-
 if len(heslo) >= 8 and not heslo.isalpha() and not heslo.isnumeric():
     print("Heslo v poradku")
     print(ODDELOVAC)
