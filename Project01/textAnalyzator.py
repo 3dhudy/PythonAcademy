@@ -52,7 +52,7 @@ if UZIVATELE.get(jmeno) != heslo:
     print('Jmeno nebo heslo neni spravne!')
 
 elif UZIVATELE.get(jmeno) == heslo:
-    print('Muzete pokracovat.')
+    print('Pokracuji ...')
 
 # 4. Program nechá uživatele vybrat mezi třemi texty, uloženými v proměnné TEXTS. 
 print(ODDELOVAC)
@@ -75,37 +75,40 @@ for slova in vybrany_text:
 pocet_slov = len(vycistena_slova)
 print(f"Pocet slov ve vybranem textu je: {pocet_slov}")
 
-pocet_velkych = 0
-pocet_velkymi = 0
-pocet_malymi = 0
-pocet_cisel = 0
+zacina_velkymi = [jednotliva_slova.pop()]
+psano_velkymi = [jednotliva_slova.pop()]
+psano_malymi = [jednotliva_slova.pop()]
+cisla = [jednotliva_slova.pop()]
 
-for slovo in vycistena_slova:
-    sum(slovo.title)
-    
-
-# for slova in vycistena_slova:
-#     if slova.title():
-#         pocet_velkych += 1
-#     elif slova.isupper():
-#         pocet_velkymi += 1
-#     elif slova.islower():
-#         pocet_malymi += 1
-#     elif slova.isnumeric():
-#         pocet_cisel += 1
+for slova in jednotliva_slova:
+    if slova.isnumeric():
+        cisla.append(slova)
+    elif slova.title():
+        zacina_velkymi.append(slova) 
+    elif slova.isupper():
+        psano_velkymi.append(slova) 
+    elif slova.islower():
+        psano_malymi.append(slova)
     
 # - počet slov začínajících velkým písmenem, .title()
+pocet_velkych = len(zacina_velkymi)
 print(f"Pocet slov zacinajicich velkymi pismeny je: {pocet_velkych}")
 
 # - počet slov psaných velkými písmeny, .isupper()
+pocet_velkymi = len(psano_velkymi)
 print(f"Pocet slov psanych velkymi pismeny je: {pocet_velkymi}")
 
 # - počet slov psaných malými písmeny, .islower()
+pocet_malymi = len(psano_malymi)
 print(f"Pocet slov psanych malymi pismeny je: {pocet_malymi}")
 
 # - počet čísel (ne cifer!). .isnumeric()
+pocet_cisel = len(cisla)
 print(f"Pocet cisel je: {pocet_cisel}")
+print(ODDELOVAC)
 
 # 6. Program zobrazí jednoduchý sloupcový graf, který bude reprezentovat četnost různých délek slov v textu. 
 
 # 7. Program spočítá součet všech čísel (ne cifer!) v textu.
+soucet = sum(cisla)
+print(f"Soucet cisel ve vybranem textu je: {soucet}")
