@@ -73,7 +73,7 @@ for slova in vybrany_text:
 
 # - počet slov,
 pocet_slov = len(vycistena_slova)
-print(f"Pocet slov ve vybranem textu je: {pocet_slov}")
+print(f"V textu je: {pocet_slov}, slov celkem.")
 
 zacina_velkymi = [vycistena_slova.pop()]
 psano_velkymi = [vycistena_slova.pop()]
@@ -92,19 +92,19 @@ for slova in vycistena_slova:
     
 # - počet slov začínajících velkým písmenem, .title()
 pocet_velkych = len(zacina_velkymi)
-print(f"Pocet slov zacinajicich velkymi pismeny je: {pocet_velkych}")
+print(f"V textu je: {pocet_velkych}, slov zacinajicich velkymi pismeny.")
 
 # - počet slov psaných velkými písmeny, .isupper()
 pocet_velkymi = len(psano_velkymi)
-print(f"Pocet slov psanych velkymi pismeny je: {pocet_velkymi}")
+print(f"V textu je: {pocet_velkymi}, slov psanych velkymi pismeny.")
 
 # - počet slov psaných malými písmeny, .islower()
 pocet_malymi = len(psano_malymi)
-print(f"Pocet slov psanych malymi pismeny je: {pocet_malymi}")
+print(f"V textu je: {pocet_malymi}, slov psanych malymi pismeny.")
 
 # - počet čísel (ne cifer!). .isnumeric()
 pocet_cisel = len(cisla)
-print(f"Pocet cisel je: {pocet_cisel}")
+print(f"V textu je: {pocet_cisel}, cisel")
 # print(ODDELOVAC)
 
 # 6. Program zobrazí jednoduchý sloupcový graf, který bude reprezentovat četnost různých délek slov v textu. 
@@ -129,4 +129,6 @@ for  index, _ in enumerate(range(len(nejscastejsi), 0, -1), 1):
 
 # 7. Program spočítá součet všech čísel (ne cifer!) v textu.
 soucet = sum(cisla)
+print(ODDELOVAC)
 print(f"Soucet cisel ve vybranem textu je: {soucet}")
+print(ODDELOVAC)
