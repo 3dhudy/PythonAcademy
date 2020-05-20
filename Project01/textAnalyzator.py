@@ -128,5 +128,5 @@ for  index, _ in enumerate(range(len(nejscastejsi), 0, -1), 1):
         break
 
 # 7. Program spočítá součet všech čísel (ne cifer!) v textu.
-# soucet = sum(cisla)
-# print(f"Soucet cisel ve vybranem textu je: {soucet}")
+soucet = sum(cisla)
+print(f"Soucet cisel ve vybranem textu je: {soucet}")
