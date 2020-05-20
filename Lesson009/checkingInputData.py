@@ -5,7 +5,7 @@ from typing import List
 # I. KROK
 # Vytvoreni hlavni funkce
 def main() -> None:
-    nactena_cisla = nacitani_udaju("Lesson09/numbers.txt")
+    nactena_cisla = nacitani_udaju("Lesson009/numbers.txt")
     ostripovana_data = ocisti_udaje(nactena_cisla)
     zkontroluj_typ_udaju(ostripovana_data)
 
