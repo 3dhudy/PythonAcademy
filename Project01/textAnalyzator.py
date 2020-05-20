@@ -75,12 +75,12 @@ for slova in vybrany_text:
 pocet_slov = len(vycistena_slova)
 print(f"Pocet slov ve vybranem textu je: {pocet_slov}")
 
-zacina_velkymi = [jednotliva_slova.pop()]
-psano_velkymi = [jednotliva_slova.pop()]
-psano_malymi = [jednotliva_slova.pop()]
-cisla = [jednotliva_slova.pop()]
+zacina_velkymi = [vycistena_slova.pop()]
+psano_velkymi = [vycistena_slova.pop()]
+psano_malymi = [vycistena_slova.pop()]
+cisla = [vycistena_slova.pop()]
 
-for slova in jednotliva_slova:
+for slova in vycistena_slova:
     if slova.isnumeric():
         cisla.append(slova)
     elif slova.title():
@@ -105,10 +105,28 @@ print(f"Pocet slov psanych malymi pismeny je: {pocet_malymi}")
 # - počet čísel (ne cifer!). .isnumeric()
 pocet_cisel = len(cisla)
 print(f"Pocet cisel je: {pocet_cisel}")
-print(ODDELOVAC)
+# print(ODDELOVAC)
 
 # 6. Program zobrazí jednoduchý sloupcový graf, který bude reprezentovat četnost různých délek slov v textu. 
 
+# podle_delky = vycistena_slova.sort(key=len, reverse=True)
+delky_slov = {}
+for delka in sorted(vycistena_slova, key=len, reverse=True):
+     delky_slov[len(delka)] = delky_slov.setdefault(len(delka), 0) +1
+    #  print(f"{len(delka)}, {'*'*len(delka)}")
+
+nejscastejsi = sorted(delky_slov, key=delky_slov.get, reverse=True)
+# pp(nejscastejsi)
+
+for  index, _ in enumerate(range(len(nejscastejsi), 0, -1), 1):
+    print(ODDELOVAC)
+    # print(f"{index}", end=", ")
+
+    for slovo  in nejscastejsi:
+        print(f"Delka: {slovo}, Vyskyt: {delky_slov[slovo]}x")
+        nejscastejsi.remove(slovo)
+        break
+
 # 7. Program spočítá součet všech čísel (ne cifer!) v textu.
-soucet = sum(cisla)
-print(f"Soucet cisel ve vybranem textu je: {soucet}")
+# soucet = sum(cisla)
+# print(f"Soucet cisel ve vybranem textu je: {soucet}")
