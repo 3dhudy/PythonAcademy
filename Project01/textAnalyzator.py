@@ -67,9 +67,8 @@ else:
     vybrany_text = TEXTS[volba - 1]
     
 # 5. Pro vybraný text spočítá následující statistiky:
-for slova in vybrany_text:
-    jednotliva_slova = vybrany_text.split()
-    vycistena_slova = [slovo.strip(".,/") for slovo in vybrany_text.split()]
+jednotliva_slova = vybrany_text.split()
+vycistena_slova = [slovo.strip(".,/") for slovo in vybrany_text.split()]
 
 # - počet slov,
 pocet_slov = len(vycistena_slova)
