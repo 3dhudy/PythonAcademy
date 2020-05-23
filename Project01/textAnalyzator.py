@@ -105,19 +105,14 @@ print(f"V textu je: {psano_malymi}, slov psanych malymi pismeny.")
 print(f"V textu je: {cisla}, cisel")
 
 # 6. Program zobrazí jednoduchý sloupcový graf, který bude reprezentovat četnost různých délek slov v textu. 
-
-# podle_delky = vycistena_slova.sort(key=len, reverse=True)
 delky_slov = {}
 for delka in sorted(vycistena_slova, key=len, reverse=True):
      delky_slov[len(delka)] = delky_slov.setdefault(len(delka), 0) +1
-    #  print(f"{len(delka)}, {'*'*len(delka)}")
 
 nejscastejsi = sorted(delky_slov, key=delky_slov.get, reverse=True)
-# pp(nejscastejsi)
 
 for  index, _ in enumerate(range(len(nejscastejsi), 0, -1), 1):
     print(ODDELOVAC)
-    # print(f"{index}", end=", ")
 
     for slovo  in nejscastejsi:
         print(f"Delka: {slovo}, Vyskyt: {delky_slov[slovo]}x")
