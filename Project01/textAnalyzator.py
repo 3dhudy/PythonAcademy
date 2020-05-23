@@ -40,28 +40,28 @@ garpike and stingray are also present.'''
 
 # 1. Na začátku přivítá uživatele.
 print(ODDELOVAC)
-print('Vytejte v aplikaci, prihlaste se prosim: ')
+print('Vytejte v aplikaci, přihlaste se prosím: ')
 print(ODDELOVAC)
 
 # 2. Vyžádá si od uživatele přihlašovací jméno a heslo. 
-jmeno = str(input('Zadejte jmeno:'))
+jmeno = str(input('Zadejte jméno:'))
 heslo = str(input('Zadejte heslo:'))
 
 # 3. Zjistí, jestli zadané údaje odpovídají někomu z registrovaných uživatelů.
 if UZIVATELE.get(jmeno) != heslo:
-    print('Jmeno nebo heslo neni spravne!')
+    print('Jméno nebo heslo není spravné!')
 
 elif UZIVATELE.get(jmeno) == heslo:
-    print('Pokracuji ...')
+    print('Pokračuji ...')
 
 # 4. Program nechá uživatele vybrat mezi třemi texty, uloženými v proměnné TEXTS. 
 print(ODDELOVAC)
-print('Mame 3 texty k analyze: ')
-volba = int(input('Zadejte cislo od 1 do 3 pro vyber: '))
+print('Máme 3 texty k analýze: ')
+volba = int(input('Zadejte číslo od 1 do 3 pro výběr: '))
 print(ODDELOVAC)
 
 if volba < 1 or volba > 3:
-    print("Vami vybrane cislo neni v nabidce, ukoncuji")
+    print("Vámi vybrané čéslo nen= v nabidce, ukončuji ...")
     exit()
 else:
     vybrany_text = TEXTS[volba - 1]
@@ -93,16 +93,16 @@ for slova in vycistena_slova:
 
 
 # - počet slov začínajících velkým písmenem, .title()
-print(f"V textu je: {zacina_velkymi}, slov zacinajicich velkymi pismeny.")
+print(f"V textu je: {zacina_velkymi}, slov začínajicích velkými písmeny.")
 
 # - počet slov psaných velkými písmeny, .isupper()
-print(f"V textu je: {psano_velkymi}, slov psanych velkymi pismeny.")
+print(f"V textu je: {psano_velkymi}, slov psaných velkými písmeny.")
 
 # - počet slov psaných malými písmeny, .islower()
-print(f"V textu je: {psano_malymi}, slov psanych malymi pismeny.")
+print(f"V textu je: {psano_malymi}, slov psaných malými písmeny.")
 
 # - počet čísel (ne cifer!). .isnumeric()
-print(f"V textu je: {cisla}, cisel")
+print(f"V textu je: {cisla}, čísel")
 
 # 6. Program zobrazí jednoduchý sloupcový graf, který bude reprezentovat četnost různých délek slov v textu. 
 delky_slov = {}
@@ -115,11 +115,11 @@ for  index, _ in enumerate(range(len(nejscastejsi), 0, -1), 1):
     print(ODDELOVAC)
 
     for slovo  in nejscastejsi:
-        print(f"Delka: {slovo}, Vyskyt: {delky_slov[slovo]}x")
+        print(f"Délka: {slovo}, Výskyt: {delky_slov[slovo]}x")
         nejscastejsi.remove(slovo)
         break
 
 # 7. Program spočítá součet všech čísel (ne cifer!) v textu.
 print(ODDELOVAC)
-print(f"Soucet cisel ve vybranem textu je: {soucet}")
+print(f"Součet čísel ve vybraném textu je: {soucet}")
 print(ODDELOVAC)
