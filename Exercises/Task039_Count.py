@@ -7,7 +7,7 @@ def my_count(sequence):
     vyskyt_slov = {}
     for slovo in sequence:
         vyskyt_slov[slovo] = vyskyt_slov.setdefault(slovo, 0) +1
-    pp(f"{vyskyt_slov}")
+    return vyskyt_slov
 
 # Nase data
 names = ['Rob', 'Jim', 'Mark', 'Mark', 'Mark',
@@ -15,4 +15,4 @@ names = ['Rob', 'Jim', 'Mark', 'Mark', 'Mark',
 'Mark', 'Mark', 'Bob', 'Mark']
 
 # Pouziti funkce count a tisk vysledku
-my_count(names)
+pp(my_count(names))
